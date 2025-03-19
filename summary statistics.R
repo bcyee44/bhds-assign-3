@@ -164,4 +164,5 @@ by(long_text_data, long_text_data$Group, function(subgroup) {
 #mean = 61.84
 #variance = 88.56
 #standard deviation = 9.41
-#CV = 0.15
+#CV = 0.15 
+
