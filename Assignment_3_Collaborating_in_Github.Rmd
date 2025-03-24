@@ -192,7 +192,8 @@ ggplot(long_text_data, aes(x=Group, y = value, fill = Group)) +
 # stratified_bar_chart.R
 # Stratified Bar Chart of Text Messages by Group and Time
 # Author: Collaborative GitHub Project Team/Veronica Leary
-# Description: This script generates a stratified bar chart with a Wes Anderson color palette using ggplot2 and dplyr
+# Description: This script generates a stratified bar chart with a Wes Anderson 
+#color palette using ggplot2 and dplyr
 
 # Load and clean the dataset
 data <- read.csv("TextMessages.csv")  # Load dataset
@@ -214,7 +215,9 @@ data <- data %>%
 
 ```{r Bar Chart}
 
-#Use ggplot() with pipeline and dplyr set as groups 1 and 2 and stratified by two points in time-at basline and six months (x-axis) and asssessed by the number of text messages (y-axis) with text messages ranging from 0 to 1500
+#Use ggplot() with pipeline and dplyr set as groups 1 and 2 and stratified by 
+#two points in time-at basline and six months (x-axis) and assessed by the 
+#number of text messages (y-axis) with text messages ranging from 0 to 1500
 data %>%
   group_by(Group, Time) %>%
   summarise(TotalMessages = sum(TextMessages, na.rm = TRUE), .groups = "drop") %>%
@@ -241,9 +244,13 @@ data %>%
 # Contributions Overview
 
 # Brandon Yee:
-# - Responsible for Visualization 1: Stratified boxplot using ggplot2 default theme.
+#- Responsible for initial setup of Github repository
+#- Responsible for Visualization 1: Stratified boxplot using ggplot2 default theme.
 # - This visualization highlighted the distribution of text messages across time and group,
 #   including medians, variability, and outliers.
+#- Responsible originally for summary statistics:
+# - Wrote code for summary statistics using stat.desc and by functions.
+# - Deferred and handed off to Veronica since she had a more aesthetic display method.
 
 # Veronica Leary:
 # - Responsible for Visualization 2: Stratified bar chart using ggplot2 + wesanderson theme.
@@ -269,6 +276,7 @@ data %>%
 #     - "Created documentation and embedded inference blocks"
 # - Pushes were successful, but merge is pending due to repository permissions
 #   (partner is the owner of the GitHub repo).
+# - Push and merge to main branch by Brandon was successful after he reviewed and edited.
 
 
 # Reflection
