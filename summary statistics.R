@@ -1,0 +1,168 @@
+#Creates summary statistics of Text Messages by Group and Time
+
+
+#set working directory as folder on desktop
+setwd("C:/Users/brand/OneDrive/Desktop/BHDS2010/ASSIGN3/bhds-assign-3")
+#successfully set working directory
+
+
+#Read data set in
+#Use read.csv since the file is a csv file
+text_data <- read.csv("TextMessages.csv")
+#File was successfully read in
+
+#Use nrow() to check the number of rows/observations
+nrow(text_data)
+#There are 50 rows in the dataset
+
+#Use names() to view the variable names
+names(text_data)
+#There are variables "Group", "Baseline", "Six_months" and "Participant"
+
+#load reshape to convert data to long with melt()
+library(reshape)
+
+#Using cbind to combine the melted text data without the Group variable with a
+#a column containing the Group variable replicated a second time.
+long_text_data <- cbind(melt(text_data[,-1],
+                             id.vars = "Participant", #not melting Participant
+                             variable_name = "Time", #Variable name for melted
+                             value.names = "Texts"), #argument not working? Supposed
+                        #to change the variable name to "Texts", but doesn't 
+                        #seem to work anymore.
+                        Group = rep(text_data$Group, 2)) #Using rep() to replicate
+
+#Use is.factor() to check if Group is a factor
+is.factor(long_text_data$Group)
+#FALSE was returned
+#Use as.factor() to change it to a factor
+long_text_data$Group <- as.factor(long_text_data$Group)
+#Verify again with is.factor()
+is.factor(long_text_data$Group)
+#TRUE is returned this time
+
+#Check if Time is a factor with is.factor()
+is.factor(long_text_data$Time)
+#TRUE was returned
+
+#Check the factor names of Time using levels()
+levels(long_text_data$Time)
+#"Baseline" and "Six_months" were returned
+
+#Use levels again and set the names of the factors to have "Six Months" for
+#easier readability for the boxplots
+levels(long_text_data$Time) <- c("Baseline", "Six Months")
+#check the levels again
+levels(long_text_data$Time)
+#Now "Baseline" and "Six Months" was returned
+
+table(long_text_data$Time)
+
+table(long_text_data$Group)
+
+
+#load pastecs package
+library(pastecs)
+
+#using the by() function to output summary statistics by group
+by(long_text_data$value, long_text_data$Group, function(X)round(stat.desc(X),2))
+
+#Group 1
+#n = 50
+#min = 9
+#max = 85
+#range = 76
+#median = 60
+#mean = 58.90
+#variance = 222.50
+#standard deviation = 14.92
+#CV = 0.25
+
+#Group 2
+#n = 50
+#min = 46
+#max = 89
+#range = 43
+#median = 62
+#mean = 63.72
+#variance = 104.49
+#standard deviation = 10.22
+#CV = 0.16
+
+#using the by() function to output summary statistics by time
+by(long_text_data$value, long_text_data$Time, function(X)round(stat.desc(X),2))
+
+#Baseline
+#n = 50
+#min = 46
+#max = 89
+#range = 43
+#median = 64.50
+#mean = 65.22
+#variance = 113.52
+#standard deviation = 10.65
+#CV = 0.16
+
+#Six months
+#n = 50
+#min = 9
+#max = 79
+#range = 70
+#median = 60.50
+#mean = 57.40
+#variance = 194.12
+#standard deviation = 13.93
+#CV = 0.24
+
+#using the by() function in another by function to output summary statistics by 
+#group and time
+by(long_text_data, long_text_data$Group, function(subgroup) {
+  by(subgroup$value,subgroup$Time , function(y) {
+    round(stat.desc(y),2)
+  })
+})
+
+#Group 1 Baseline
+#n = 25
+#min = 47
+#max = 85
+#range = 38
+#median = 64
+#mean = 64.84
+#variance = 114.06
+#standard deviation = 10.68
+#CV = 0.16
+
+#Group 1 Six months
+#n = 25
+#min = 9
+#max = 78
+#range = 69
+#median = 58
+#mean = 52.96
+#variance = 266.71
+#standard deviation = 16.33
+#CV = 0.31
+
+#Group 2 Baseline
+#n = 25
+#min = 46
+#max = 89
+#range = 43
+#median = 65
+#mean = 65.60
+#variance = 117.42
+#standard deviation = 10.84
+#CV = 0.17
+
+#Group 1 Six months
+#n = 25
+#min = 46
+#max = 79
+#range = 33
+#median = 62
+#mean = 61.84
+#variance = 88.56
+#standard deviation = 9.41
+#CV = 0.15 
+
