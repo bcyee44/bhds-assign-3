@@ -39,7 +39,7 @@ library(reshape)        # For converting data to long with melt()
 ```{r load-data}
 
 # set working directory as folder on desktop
-# setwd("C:/Users/brand/OneDrive/Desktop/BHDS2010/ASSIGN3/bhds-assign-3")
+ setwd("C:/Users/brand/OneDrive/Desktop/BHDS2010/ASSIGN3/bhds-assign-3")
 # setwd("/Users/vleary71/Desktop/BHDS2010/ASSIGN3/bhds-assign-3")
 # successfully set working directory
 
@@ -216,7 +216,7 @@ data <- data %>%
 ```{r Bar Chart}
 
 #Use ggplot() with pipeline and dplyr set as groups 1 and 2 and stratified by 
-#two points in time-at basline and six months (x-axis) and assessed by the 
+#two points in time-at basline and six months (x-axis) and asssessed by the 
 #number of text messages (y-axis) with text messages ranging from 0 to 1500
 data %>%
   group_by(Group, Time) %>%
@@ -229,7 +229,7 @@ data %>%
        x = "Time Point",
        y = "Total Text Messages") +
   theme_minimal(base_size = 14) +
-  theme(legend.position = "none",plot.title = element_text(size=15))
+  theme(legend.position = "none")
 
 
 ```
@@ -244,13 +244,13 @@ data %>%
 # Contributions Overview
 
 # Brandon Yee:
-# - Responsible for initial setup of Github repository
-# - Responsible for Visualization 1: Stratified boxplot using ggplot2 default theme.
-#   - This visualization highlighted the distribution of text messages across time and group,
+#- Responsible for initial setup of Github repository
+#- Responsible for Visualization 1: Stratified boxplot using ggplot2 default theme.
+# - This visualization highlighted the distribution of text messages across time and group,
 #   including medians, variability, and outliers.
-# - Responsible originally for summary statistics:
-#   - Wrote code for summary statistics using stat.desc and by functions.
-#   - Deferred and handed off to Veronica since she had a more aesthetic display method.
+#- Responsible originally for summary statistics:
+# - Wrote code for summary statistics using stat.desc and by functions.
+# - Deferred and handed off to Veronica since she had a more aesthetic display method.
 
 # Veronica Leary:
 # - Responsible for Visualization 2: Stratified bar chart using ggplot2 + wesanderson theme.
@@ -276,7 +276,7 @@ data %>%
 #     - "Created documentation and embedded inference blocks"
 # - Pushes were successful, but merge is pending due to repository permissions
 #   (partner is the owner of the GitHub repo).
-# - Push and merge to main branch by Brandon was successful after he reviewed and edited.
+# - Push to main branch by Brandon was successful after he reviewed and edited.
 
 
 # Reflection
