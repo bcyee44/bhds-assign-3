@@ -244,13 +244,13 @@ data %>%
 # Contributions Overview
 
 # Brandon Yee:
-#- Responsible for initial setup of Github repository
-#- Responsible for Visualization 1: Stratified boxplot using ggplot2 default theme.
-# - This visualization highlighted the distribution of text messages across time and group,
+# - Responsible for initial setup of Github repository
+# - Responsible for Visualization 1: Stratified boxplot using ggplot2 default theme.
+#   - This visualization highlighted the distribution of text messages across time and group,
 #   including medians, variability, and outliers.
-#- Responsible originally for summary statistics:
-# - Wrote code for summary statistics using stat.desc and by functions.
-# - Deferred and handed off to Veronica since she had a more aesthetic display method.
+# - Responsible originally for summary statistics:
+#   - Wrote code for summary statistics using stat.desc and by functions.
+#   - Deferred and handed off to Veronica since she had a more aesthetic display method.
 
 # Veronica Leary:
 # - Responsible for Visualization 2: Stratified bar chart using ggplot2 + wesanderson theme.
