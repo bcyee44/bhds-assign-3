@@ -142,8 +142,6 @@ texting patterns across two groups and over time.
 \FunctionTok{library}\NormalTok{(tidyr)          }\CommentTok{\# For reshaping data}
 \FunctionTok{library}\NormalTok{(wesanderson)    }\CommentTok{\# For Wes Anderson{-}inspired color palettes}
 \FunctionTok{library}\NormalTok{(reshape)        }\CommentTok{\# For converting data to long with melt()}
-
-\CommentTok{\#knitr::opts\_chunk$set(tidy.opts = list(width.cutoff = 180), tidy = TRUE)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -154,7 +152,7 @@ texting patterns across two groups and over time.
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# set working directory as folder on desktop}
-\CommentTok{\# setwd("C:/Users/brand/OneDrive/Desktop/BHDS2010/ASSIGN3/bhds{-}assign{-}3")}
+ \FunctionTok{setwd}\NormalTok{(}\StringTok{"C:/Users/brand/OneDrive/Desktop/BHDS2010/ASSIGN3/bhds{-}assign{-}3"}\NormalTok{)}
 \CommentTok{\# setwd("/Users/vleary71/Desktop/BHDS2010/ASSIGN3/bhds{-}assign{-}3")}
 \CommentTok{\# successfully set working directory}
 
@@ -417,7 +415,8 @@ Group & Time Point & N & Mean & Median & Standard Deviation \\
 \CommentTok{\# stratified\_bar\_chart.R}
 \CommentTok{\# Stratified Bar Chart of Text Messages by Group and Time}
 \CommentTok{\# Author: Collaborative GitHub Project Team/Veronica Leary}
-\CommentTok{\# Description: This script generates a stratified bar chart with a Wes Anderson color palette using ggplot2 and dplyr}
+\CommentTok{\# Description: This script generates a stratified bar chart with a Wes Anderson }
+\CommentTok{\#color palette using ggplot2 and dplyr}
 
 \CommentTok{\# Load and clean the dataset}
 \NormalTok{data }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"TextMessages.csv"}\NormalTok{)  }\CommentTok{\# Load dataset}
@@ -440,7 +439,9 @@ Group & Time Point & N & Mean & Median & Standard Deviation \\
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\#Use ggplot() with pipeline and dplyr set as groups 1 and 2 and stratified by two points in time{-}at basline and six months (x{-}axis) and asssessed by the number of text messages (y{-}axis) with text messages ranging from 0 to 1500}
+\CommentTok{\#Use ggplot() with pipeline and dplyr set as groups 1 and 2 and stratified by }
+\CommentTok{\#two points in time{-}at basline and six months (x{-}axis) and assessed by the }
+\CommentTok{\#number of text messages (y{-}axis) with text messages ranging from 0 to 1500}
 \NormalTok{data }\SpecialCharTok{\%\textgreater{}\%}
   \FunctionTok{group\_by}\NormalTok{(Group, Time) }\SpecialCharTok{\%\textgreater{}\%}
   \FunctionTok{summarise}\NormalTok{(}\AttributeTok{TotalMessages =} \FunctionTok{sum}\NormalTok{(TextMessages, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{), }\AttributeTok{.groups =} \StringTok{"drop"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
@@ -472,16 +473,13 @@ scripts.}\label{it-can-be-used-as-a-reference-in-combination-with-the-visual-and
 
 \section{Brandon Yee:}\label{brandon-yee}
 
-\section{- Responsible for Visualization 1: Stratified boxplot using
-ggplot2 default
-theme.}\label{responsible-for-visualization-1-stratified-boxplot-using-ggplot2-default-theme.}
-
-\section{- This visualization highlighted the distribution of text
-messages across time and
-group,}\label{this-visualization-highlighted-the-distribution-of-text-messages-across-time-and-group}
-
-\section{including medians, variability, and
-outliers.}\label{including-medians-variability-and-outliers.}
+\#- Responsible for initial setup of Github repository \#- Responsible
+for Visualization 1: Stratified boxplot using ggplot2 default theme. \#
+- This visualization highlighted the distribution of text messages
+across time and group, \# including medians, variability, and outliers.
+\#- Responsible originally for summary statistics: \# - Wrote code for
+summary statistics using stat.desc and by functions. \# - Deferred and
+handed off to Veronica since she had a more aesthetic display method.
 
 \section{Veronica Leary:}\label{veronica-leary}
 
@@ -544,6 +542,10 @@ permissions}\label{pushes-were-successful-but-merge-is-pending-due-to-repository
 
 \section{(partner is the owner of the GitHub
 repo).}\label{partner-is-the-owner-of-the-github-repo.}
+
+\section{- Push to main branch by Brandon was successful after he
+reviewed and
+edited.}\label{push-to-main-branch-by-brandon-was-successful-after-he-reviewed-and-edited.}
 
 \section{Reflection}\label{reflection}
 
