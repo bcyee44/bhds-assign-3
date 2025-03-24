@@ -1,0 +1,97 @@
+---
+title: "Summary_Statistics"
+author: "Veronica Leary" "Brandon Yee"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+---
+
+# Introduction
+
+This report generates and displays summary statistics of text message counts by **Group** and **Time Point**.  
+We calculate measures of central tendency and variability to understand texting patterns across two groups and over time.
+
+---
+
+# Load Required Libraries
+
+```{r setup, message=FALSE, warning=FALSE}
+library(dplyr)      # Data manipulation
+library(tidyr)      # Reshaping data
+library(readr)      # Reading CSV files
+library(gt)         # Generating clean, styled summary tables
+```
+
+---
+
+# Data Loading and Cleaning
+
+```{r load-data}
+# Read in the dataset and clean header rows
+data <- read.csv("TextMessages.csv")  # Reads the dataset into an R dataframe
+
+# Reshape from wide to long format
+data_long <- data %>%
+  mutate(across(c(Baseline, Six_months), as.numeric),
+         Group = as.factor(Group)) %>%
+  pivot_longer(cols = c(Baseline, Six_months),
+               names_to = "Time",
+               values_to = "TextMessages")
+```
+
+---
+
+# Summary Statistics Calculation
+
+We calculate:
+
+- **Count** of observations per group/time
+- **Mean**, **Median**, and **Standard Deviation** of text message counts
+
+```{r summary-table}
+summary_table <- data_long %>%
+  group_by(Group, Time) %>%
+  summarise(
+    Count = n(),
+    Mean = round(mean(TextMessages, na.rm = TRUE), 2),
+    Median = round(median(TextMessages, na.rm = TRUE), 2),
+    SD = round(sd(TextMessages, na.rm = TRUE), 2),
+    .groups = "drop"
+  )
+```
+
+---
+
+# Summary Table Output
+
+```{r summary-display}
+summary_table %>%
+  gt() %>%
+  tab_header(
+    title = "Summary Statistics of Text Messages",
+    subtitle = "Grouped by Treatment Group and Time Point"
+  ) %>%
+  cols_label(
+    Group = "Group",
+    Time = "Time Point",
+    Count = "N",
+    Mean = "Mean",
+    Median = "Median",
+    SD = "Standard Deviation"
+  ) %>%
+  fmt_number(columns = c(Mean, Median, SD), decimals = 2) %>%
+  tab_options(
+    table.font.size = 12,
+    heading.title.font.size = 16,
+    heading.subtitle.font.size = 14
+  )
+```
+
+---
+
+# Inference
+
+- If the **mean** and **median** differ substantially, this may suggest skewness in message volume.
+- Compare between **Groups** to explore differences in texting behavior.
+- An increase from **Baseline** to **Six_months** may indicate behavioral changes over time.
+- Use standard deviation to understand variability within each subgroup.
