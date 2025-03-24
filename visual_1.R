@@ -3,7 +3,8 @@
 #Hint: Faceted Boxplot
 
 #set working directory as folder on desktop
-setwd("C:/Users/brand/OneDrive/Desktop/BHDS2010/ASSIGN3/bhds-assign-3")
+#setwd("C:/Users/brand/OneDrive/Desktop/BHDS2010/ASSIGN3/bhds-assign-3")
+#setwd("/Users/vleary71/Desktop/BHDS2010/ASSIGN3/bhds-assign-3")
 #successfully set working directory
 
 
