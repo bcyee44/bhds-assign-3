@@ -229,7 +229,7 @@ data %>%
        x = "Time Point",
        y = "Total Text Messages") +
   theme_minimal(base_size = 14) +
-  theme(legend.position = "none",plot.title = element_text(size=15))
+  theme(legend.position = "none")
 
 
 ```
