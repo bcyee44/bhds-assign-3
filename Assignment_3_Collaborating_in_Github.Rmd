@@ -237,31 +237,37 @@ data %>%
 
 # Project Summary
 
-# This script outlines the contributions and workflow from our group project analyzing text message data.
-# It can be used as a reference in combination with the visual and statistical output scripts.
+This script outlines the contributions and workflow from our group project analyzing text message data.
+It can be used as a reference in combination with the visual and statistical output scripts.
 
 
 # Contributions Overview
 
-# Brandon Yee:
-# - Responsible for initial setup of Github repository
-# - Responsible for Visualization 1: Stratified boxplot using ggplot2 default theme.
-#   - This visualization highlighted the distribution of text messages across time and group,
-#   including medians, variability, and outliers.
-# - Responsible originally for summary statistics:
-#   - Wrote code for summary statistics using stat.desc and by functions.
-#   - Deferred and handed off to Veronica since she had a more aesthetic display method.
+ - Brandon Yee:
+   - Responsible for initial setup of Github repository
+   - Responsible for Visualization 1: Stratified boxplot using ggplot2 default theme.
+     - This visualization highlighted the distribution of text messages across time and group,
+       including medians, variability, and outliers.
+   - Responsible originally for summary statistics:
+     - Wrote code for summary statistics using stat.desc and by functions.
+     - Deferred and handed off to Veronica since she had a more aesthetic display method.
 
-# Veronica Leary:
-# - Responsible for Visualization 2: Stratified bar chart using ggplot2 + wesanderson theme.
-#   - Allowed for comparison of total message counts between groups and time points.
-#   - Revealed possible increase in message volume in Group B over time.
-# - Responsible for Summary Statistics:
-#   - Used dplyr + gt to produce a well-formatted table of N, Mean, Median, and SD.
-#   - Supported the interpretation of patterns observed in the plots.
-# - Responsible for all documentation:
-#   - Embedded interpretation and narrative into visualizations.
-#   - Created markdown and final report files for submission.
+
+ - Veronica Leary:
+    - Responsible for Visualization 2: Stratified bar chart using ggplot2 + wesanderson theme.
+      - Allowed for comparison of total message counts between groups and time points.
+      - Revealed possible increase in message volume in Group B over time.
+    - Responsible for Summary Statistics:
+      - Used dplyr + gt to produce a well-formatted table of N, Mean, Median, and SD.
+      - Supported the interpretation of patterns observed in the plots.
+    - Responsible for all documentation:
+      - Embedded interpretation and narrative into visualizations.
+      - Created markdown and final report files for submission.
+
+
+
+
+
 
 ```{r for printing purposes}
 # GitHub Workflow
@@ -269,21 +275,22 @@ data %>%
 
 # GitHub Workflow
 
-# - Created a dedicated branch for visualizations and documentation tasks.
-# - Commit messages included:
-#     - "Added stratified bar chart with Wes Anderson color palette"
-#     - "Generated summary statistics table with gt"
-#     - "Created documentation and embedded inference blocks"
-# - Pushes were successful, but merge is pending due to repository permissions
-#   (partner is the owner of the GitHub repo).
-# - Push and merge to main branch by Brandon was successful after he reviewed and edited.
+ - Created a dedicated branch for visualizations and documentation tasks.
+ - Commit messages included:
+     - "Added stratified bar chart with Wes Anderson color palette"
+     - "Generated summary statistics table with gt"
+     - "Created documentation and embedded inference blocks"
+ - Pushes were successful, but merge is pending due to repository permissions
+   (partner is the owner of the GitHub repo).
+ - Push and merge to main branch by Brandon was successful after he reviewed and edited.
 
 
 # Reflection
 
-# This assignment helped reinforce:
-# - The value of clear commit messages and reproducible code.
-# - Collaborative coding practices using Git and GitHub.
-# - Communicating visual and statistical insights clearly through embedded narrative.
+ This assignment helped reinforce:
+ 
+   - The value of clear commit messages and reproducible code.
+   - Collaborative coding practices using Git and GitHub.
+   - Communicating visual and statistical insights clearly through embedded narrative.
 
 
